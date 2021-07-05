@@ -1,0 +1,13 @@
+@import '../../assets/styles/variables.scss';
+
+input {
+    padding: 10px;
+}
+
+button {
+    background-color: $red;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin: 0 20px;
+}

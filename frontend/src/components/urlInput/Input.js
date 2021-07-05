@@ -1,12 +1,9 @@
 import React from 'react';
-
+import './input.scss';
 const Input = (props) => {
     return <form onSubmit={props.handleSubmit}>
-    <label>
-      Enter page URL:
-      <input type="text" value={props.value} onChange={props.handleChange} />
-    </label>
-    <input type="submit" value="SUBMIT" />
+      <input type="text" value={props.value} onChange={props.handleChange} placeholder="Enter your page URL"/>
+      <button> SUBMIT </button>
   </form>
 }
 
