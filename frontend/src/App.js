@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import Input from './components/Input';
+import Input from './components/urlInput/Input';
 import Spinner from './components/spinner/Spinner';
 import './app.scss'
+import { ReactComponent as Logo } from './assets/svgs/logo.svg';
 
 function App() {
   // const [data, setData] = useState(null);
@@ -40,6 +41,7 @@ function App() {
 
   return (
     <div>
+      <Logo />
       <Input handleChange={handleChange} handleSubmit={handleSubmit} />
       {isError ? 'Your url is not valid' : ''}
       {isLoading ? <Spinner /> : ''}
