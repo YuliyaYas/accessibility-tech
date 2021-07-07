@@ -2,6 +2,8 @@ import './app.scss'
 import { ReactComponent as Logo } from './assets/svgs/logo.svg';
 import Home from './pages/Home';
 import Menu from './components/menu/Menu';
+import Footer from './components/footer/footer';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,7 +12,7 @@ import {
 
 function App() {
   return (
-    <div>
+    <div className="app">
       <Logo />
       <Router>
        {/* <Menu /> */}
@@ -26,6 +28,7 @@ function App() {
           </Route>
         </Switch>
     </Router>
+    <Footer />
     </div>
   );
 }
