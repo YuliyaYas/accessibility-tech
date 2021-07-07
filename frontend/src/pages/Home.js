@@ -58,7 +58,7 @@ const Home = () => {
 
             <div id="goal-card">
                 <h3>How Does It Work?</h3>
-                <p>We evaluate website's underlying code, generate a report and provide you with a solution guidelines.</p>
+                <p>We evaluate website's underlying code, generate a report and provide you with a solution guidelines. Let's Make it Accessible!</p>
                 <div className="grid">
                     <div className="card">
                         <AnalyticsImg />
