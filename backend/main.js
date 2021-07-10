@@ -26,13 +26,19 @@ export const getPage = (req, res) => {
 
 export const scanPage = (response, res) => {
   const $ = cheerio.load(response);
-  let allEls = $('p');
-  allEls.each((i, el) => console.log('el-------_>', i, "-----_>", el))
-    fs.writeFile("output.json",   JSON.stringify(response), 'utf8', function (err) {
-      if (err) {
-          console.log("An error occured while writing JSON Object to File.");
-          return console.log(err);
-      }
-      console.log("JSON file has been saved.");
-  });
+  const htmlTag = $('html');
+  const metaTags = $('meta');
+  const pTags = $('p');
+  checkHTML(htmlTag);
+  // allEls.each((i, el) => console.log('el-------_>', i, "-----_>", el))
+  //   fs.writeFile("output.json",   JSON.stringify(response), 'utf8', function (err) {
+  //     if (err) {
+  //         console.log("An error occured while writing JSON Object to File.");
+  //         return console.log(err);
+  //     }
+  //     console.log("JSON file has been saved.");
+  // });
+
+  // res.send({ myResponse: 'YAY'})
+
 }

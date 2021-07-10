@@ -1,6 +1,7 @@
-import scanPage from '../main';
+import getPage from '../main';
 import samplePage from '../output.js';
 
-it("Renders the Footer correctly", () => {
-    
-});
+test('get page throws an error', () => {
+    expect(() => getPage()).toThrow();
+    expect(() => getPage()).toThrow(Error);
+  });
