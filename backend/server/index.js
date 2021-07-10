@@ -10,7 +10,10 @@ app.get("/api", (req, res) => {
   res.json({ message: "Hello from server!" });
 });
 
-app.post('/page-scan', (req, res) => getPage(req, res));
+app.post('/page-scan', (req, res) => {
+  fakeScanPage()
+  //getPage(req, res)
+});
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);

@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node server/index.js"
   },
   "repository": {
@@ -20,9 +20,13 @@
   },
   "homepage": "https://github.com/YuliyaYas/accessibility-tech#readme",
   "dependencies": {
+    "@babel/preset-env": "^7.14.7",
     "cheerio": "^1.0.0-rc.10",
     "express": "^4.17.1",
     "got": "^10.4.0",
     "puppeteer": "^10.1.0"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6"
   }
 }
