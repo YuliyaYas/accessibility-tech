@@ -5,6 +5,7 @@ import './home.scss';
 import { ReactComponent as AnalyticsImg } from '../assets/svgs/analytics.svg';
 import { ReactComponent as CheckImg } from '../assets/svgs/check.svg';
 import { ReactComponent as StatisticsImg } from '../assets/svgs/statistics.svg';
+import Form from '../components/form/form';
 
 const Home = () => {
     const [url, setUrl] = useState('')
@@ -80,6 +81,11 @@ const Home = () => {
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <a href="/about">LEARN MORE</a>
                 <p className="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+
+            <div id="contact-card">
+                <h3>Have a Question or Suggestion? Send Us a Message</h3>
+                <Form />
             </div>
         </>
 };

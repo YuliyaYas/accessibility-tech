@@ -1,0 +1,56 @@
+@import '../../assets/styles/variables.scss';
+
+#contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    .span-half{
+        width: 45%;
+        float: left;
+    }
+    #firstname {
+        margin-right: 3%;
+    }
+    .span-full{
+        width: 97%;
+    }
+    input, textarea {
+        background: #fafafa;
+        margin: 10px 0px;
+        border: 2px solid $dark;
+        :focus {
+            outline: none;
+        }
+    }
+    textarea {
+        width: 99.5%;
+        border: 2px solid $dark;
+        
+    }
+
+    ::placeholder {
+        color: grey;
+        font-size: 12px;
+        padding-left: 10px;
+        font-family: 'Montserrat', sans-serif;
+    }
+    input{
+        height: 25px;
+        :focus {
+            outline: none;
+      }
+    }
+    .submit-btn {
+        background-color: $red;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        margin: 0 20px;
+        cursor: pointer;
+        font-size: 14px;
+        min-width: 125px;
+        &:hover {
+            text-decoration: underline;
+        }
+        margin-bottom: 50px;
+    }
+}
