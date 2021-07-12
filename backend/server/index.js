@@ -1,4 +1,4 @@
-import { getPage }  from '../main.js';
+import { getPage }  from '../controller/scraper.js';
 import express from 'express'
 
 const PORT = 3001;
@@ -11,8 +11,7 @@ app.get("/api", (req, res) => {
 });
 
 app.post('/page-scan', (req, res) => {
-  fakeScanPage()
-  //getPage(req, res)
+  getPage(req, res)
 });
 
 app.listen(PORT, () => {
