@@ -36,7 +36,6 @@ export const scanPage = (response, res) => {
   const htmlTag = $('html');
   const metaTags = $('meta');
   const pTags = $('p');
-  console.log(htmlTag)
 
   if (htmlTag[0]) checkHTML(htmlTag[0]);
   // allEls.each((i, el) => console.log('el-------_>', i, "-----_>", el))

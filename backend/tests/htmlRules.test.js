@@ -6,7 +6,7 @@ import cheerio from'cheerio';
 describe('html rules', function() {
     // const $ = cheerio.load(samplePage.dom);
     // const htmlTag = $('html');
-    it("html has language value", () => {
+    it("when html has language value ", () => {
         expect(hasLanguageAttribute({ lang: 'en' }).isPassed).toEqual(true);
     });
 

@@ -1,6 +1,7 @@
 export const checkHTML = ( htmlTag ) => {
-    if (htmlTag.attribs) (hasLanguageAttribute(htmlTag.attribs));
-    console.log(htmlTag.attribs)
+    let htmlRules = [];
+    if (htmlTag.attribs) htmlRules.push(hasLanguageAttribute(htmlTag.attribs));
+    console.log(htmlRules)
 };
 
 export const hasLanguageAttribute = (attribs) => {
