@@ -31,11 +31,13 @@ const Home = () => {
                     setIsError(false)
                     setIsLoading(false)
                     // res.json()
+                    return res.json()
                 } else {
                     setIsError(true)
                     setIsLoading(false)
                 }
             })
+            .then( resp => console.log(resp.rules))
         e.preventDefault();
 
     }

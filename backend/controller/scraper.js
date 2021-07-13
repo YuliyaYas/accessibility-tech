@@ -27,17 +27,18 @@ import { checkHTML } from '../rules/htmlRules.js';
 // };
 
 export const getPage = (req, res) => {
-  scanPage(samplePage.dom, res);
+  scanPage(samplePage.response, res);
 
 };
 
 export const scanPage = (response, res) => {
-  const $ = cheerio.load(response);
-  const htmlTag = $('html');
-  const metaTags = $('meta');
-  const pTags = $('p');
-
-  if (htmlTag[0]) checkHTML(htmlTag[0]);
+  // const $ = cheerio.load(response);
+  // const htmlTag = $('html');
+  // const metaTags = $('meta');
+  // const pTags = $('p');
+  let rules = [];
+  const htmlRules = checkHTML(response)
+  rules = [...htmlRules]
   // allEls.each((i, el) => console.log('el-------_>', i, "-----_>", el))
   //   fs.writeFile("output.json",   JSON.stringify(response), 'utf8', function (err) {
   //     if (err) {
@@ -47,6 +48,6 @@ export const scanPage = (response, res) => {
   //     console.log("JSON file has been saved.");
   // });
 
-  // res.send({ myResponse: 'YAY'})
+  res.send({ rules})
 
 }
