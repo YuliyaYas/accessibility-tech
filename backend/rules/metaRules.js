@@ -1,5 +1,3 @@
-// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attributes
-
 export const hasCorrectMetaMaxViewportScale = ($) => {
     const metaTags = $('meta');
     let viewportTag = '';
@@ -49,7 +47,6 @@ export const hasCorrectMetaViewportUserScale = ($) => {
 
     if (viewportTag.attribs.content && viewportTag.attribs.content.includes('user-scalable')) {
         const userScale = viewportTag.attribs.content.split('user-scalable=')[1];
-        console.log('userScale', userScale.substring(0,2))
         if (!userScale.substring(0,2) === 'no') {
              return  {
                 name: 'Meta attribute',

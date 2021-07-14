@@ -9,6 +9,7 @@ import Form from '../components/form/Form';
 import Rule from '../components/rule/Rule';
 
 const Home = ({ rules, handleSubmit, handleChange, isError, isLoading}) => {
+    const passed = rules.filter(r=> r.isPassed).length || 0;
     return <>
             <div className="header-card">
                 <h2>Instantly Test If Your Websites Work With Assistive Tech</h2>
@@ -21,6 +22,11 @@ const Home = ({ rules, handleSubmit, handleChange, isError, isLoading}) => {
                 {isError ? 'Your url is not valid' : ''}
                 {isLoading ? <Spinner /> : ''}
             </div>
+            {rules.length > 0 && <center>
+                <div style={{color: 'green'}}>Passed: {passed}</div>
+                <div style={{color: 'red'}}>Failed: {rules.length - passed}</div>
+                
+            </center>}
             {rules.length > 0 && rules.map(r => <Rule key={r} rule={r}/>)}
 
             <div id="goal-card">
