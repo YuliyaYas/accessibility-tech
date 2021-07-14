@@ -4,7 +4,6 @@ import samplePage1 from './testPages/samplePage1.js';
 
 import cheerio from'cheerio';
 
-
 describe('html rules for Sample page 1', function() {
     const $ = cheerio.load(samplePage.response);
     it("when html has language value ", () => {

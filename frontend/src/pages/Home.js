@@ -1,51 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Input from '../components/urlInput/Input';
 import Spinner from '../components/spinner/Spinner';
 import './home.scss';
 import { ReactComponent as AnalyticsImg } from '../assets/svgs/analytics.svg';
 import { ReactComponent as CheckImg } from '../assets/svgs/check.svg';
 import { ReactComponent as StatisticsImg } from '../assets/svgs/statistics.svg';
-import Form from '../components/form/form';
+import Form from '../components/form/Form';
+import Rule from '../components/rule/Rule';
 
-const Home = () => {
-    const [url, setUrl] = useState('')
-    const [isError, setIsError] = useState(false);
-    const [isLoading, setIsLoading] = useState(false)
-    const handleChange = (e) => {
-        setUrl(e.target.value)
-    }
-
-    const handleSubmit = (e) => {
-        setIsLoading(true)
-        setIsError(false)
-        fetch('/page-scan', {
-            method: 'post',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ url })
-        })
-            .then(res => {
-                if (res.ok) {
-                    setIsError(false)
-                    setIsLoading(false)
-                    // res.json()
-                    return res.json()
-                } else {
-                    setIsError(true)
-                    setIsLoading(false)
-                }
-            })
-            .then( resp => console.log(resp.rules))
-        e.preventDefault();
-
-    }
-
-    useEffect(() => {
-        setIsError(false)
-    }, []);
-
+const Home = ({ rules, handleSubmit, handleChange, isError, isLoading}) => {
     return <>
             <div className="header-card">
                 <h2>Instantly Test If Your Websites Work With Assistive Tech</h2>
@@ -58,6 +21,7 @@ const Home = () => {
                 {isError ? 'Your url is not valid' : ''}
                 {isLoading ? <Spinner /> : ''}
             </div>
+            {rules.length > 0 && rules.map(r => <Rule key={r} rule={r}/>)}
 
             <div id="goal-card">
                 <h3>How Does It Work?</h3>
