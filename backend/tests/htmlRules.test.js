@@ -1,16 +1,21 @@
 import { hasLanguageAttribute}  from '../rules/htmlRules';
-import samplePage from './samplePage.js';
+import samplePage from './testPages/samplePage.js';
+import samplePage1 from './testPages/samplePage1.js';
+
 import cheerio from'cheerio';
 
 
-describe('html rules', function() {
+describe('html rules for Sample page 1', function() {
     const $ = cheerio.load(samplePage.response);
-    const htmlTag = $('html');
-    // it("when html has language value ", () => {
-    //     expect(hasLanguageAttribute(htmlTag).isPassed).toEqual(true);
-    // });
+    it("when html has language value ", () => {
+        expect(hasLanguageAttribute($).isPassed).toEqual(true);
+    });
+});
 
-    // it("html has no language value", () => {
-    //     expect(hasLanguageAttribute({}).isPassed).toEqual(false);
-    // });
+
+describe('html rules for Sample page 1', function() {
+    const $ = cheerio.load(samplePage1.response);
+    it("html has no language tag value", () => {
+        expect(hasLanguageAttribute($).isPassed).toEqual(false);
+    });
 });
