@@ -47,7 +47,7 @@ export const hasCorrectMetaViewportUserScale = ($) => {
 
     if (viewportTag.attribs.content && viewportTag.attribs.content.includes('user-scalable')) {
         const userScale = viewportTag.attribs.content.split('user-scalable=')[1];
-        if (!userScale.substring(0,2) === 'no') {
+        if (userScale.substring(0,2) !== 'no') {
              return  {
                 name: 'Meta attribute',
                 selector: null,

@@ -6,7 +6,7 @@ import samplePage3 from './testPages/samplePage3.js';
 
 import cheerio from'cheerio';
 
-describe('meta rules for Sample page 1 and 3 - viewport max scaling', function() {
+describe('meta rules for Sample page 1, 2 and 3 - viewport max scaling', function() {
     it("viewport max scaling is lower than 5", () => {
         const $ = cheerio.load(samplePage1.response);
         expect(hasCorrectMetaMaxViewportScale($).isPassed).toEqual(false);
@@ -17,16 +17,26 @@ describe('meta rules for Sample page 1 and 3 - viewport max scaling', function()
         expect(hasCorrectMetaMaxViewportScale($).isPassed).toEqual(true);
     });
 
-    it("viewport max scaling is absent shouldn't throw an error", () => {
+    it("viewport max scaling is absent", () => {
         const $ = cheerio.load(samplePage3.response);
         expect(hasCorrectMetaMaxViewportScale($)).toBeUndefined();
     });
 });
 
 
-describe('meta rules for Sample page 2', function() {
-    const $ = cheerio.load(samplePage2.response);
-    // it("", () => {
-    //     expect(hasCorrectMetaViewportUserScale($).isPassed).toEqual(false);
-    // });
+describe('meta rules for Sample page 1, 2 and 3 - user-scalable attribute check', function() {
+    it("user-scalable is absent", () => {
+        const $ = cheerio.load(samplePage1.response);
+        expect(hasCorrectMetaViewportUserScale($).isPassed).toEqual(false);
+    });
+
+    it("user-scalable is equal to no", () => {
+        const $ = cheerio.load(samplePage2.response);
+        expect(hasCorrectMetaViewportUserScale($).isPassed).toEqual(false);
+    });
+
+    it("user-scalable is equal to yes", () => {
+        const $ = cheerio.load(samplePage3.response);
+        expect(hasCorrectMetaViewportUserScale($).isPassed).toEqual(true);
+    });
 });

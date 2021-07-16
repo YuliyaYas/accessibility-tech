@@ -41,7 +41,7 @@ export const scanPage = (response, res) => {
     hasLanguageAttribute($),
     hasCorrectMetaMaxViewportScale($),
     hasCorrectMetaViewportUserScale($)
-  ].filter(function (e) {return e != null;});
+  ].filter(function (el) {return el != null;});
     // allEls.each((i, el) => console.log('el-------_>', i, "-----_>", el))
   //   fs.writeFile("output.json",   JSON.stringify(response), 'utf8', function (err) {
   //     if (err) {
