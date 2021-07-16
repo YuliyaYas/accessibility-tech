@@ -96,7 +96,7 @@ export const hasCorrectParentElforMeta = ($) => {
             selector: null,
             isPassed: false,
             category: 'meta_rule',
-            description: '<meta> tag has no incorrect parent attribute.',
+            description: '<meta> tag has no <head> parent attribute.',
             tip: '<meta> tags always go inside the <head> element',
             tag: 'meta',
         }
