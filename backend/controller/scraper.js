@@ -1,8 +1,8 @@
 import cheerio from'cheerio';
 import fs from 'fs';
 import puppeteer from 'puppeteer';
-import samplePage from '../tests/testPages/samplePage.js'
 import samplePage1 from '../tests/testPages/samplePage1.js'
+import samplePage2 from '../tests/testPages/samplePage2.js'
 import { hasLanguageAttribute } from '../rules/htmlRules.js';
 import { hasCorrectMetaMaxViewportScale, hasCorrectMetaViewportUserScale } from '../rules/metaRules.js';
 
@@ -29,7 +29,7 @@ import { hasCorrectMetaMaxViewportScale, hasCorrectMetaViewportUserScale } from 
 // };
 
 export const getPage = (req, res) => {
-  scanPage(samplePage.response, res);
+  scanPage(samplePage1.response, res);
 
 };
 
