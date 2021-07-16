@@ -80,3 +80,25 @@ export const hasCorrectMetaViewportUserScale = ($) => {
         }
     }
 }
+
+
+export const hasCorrectParentElforMeta = ($) => {
+    const metaTags = $('meta');
+    let isParentHeadTag = true;
+    metaTags.map((i, mtag) => {
+        if (mtag.parent.name !== 'head') {
+            isParentHeadTag = false;
+        }
+    });
+    if (!isParentHeadTag) {
+        return {
+            name: 'Meta attribute',
+            selector: null,
+            isPassed: false,
+            category: 'meta_rule',
+            description: '<meta> tag has no incorrect parent attribute.',
+            tip: '<meta> tags always go inside the <head> element',
+            tag: 'meta',
+        }
+    }
+};
