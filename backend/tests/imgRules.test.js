@@ -19,7 +19,7 @@ describe('img rules for Sample page 3', function () {
     });
 
     it("it displays the appropriate selector", () => {
-        expect(hasAltAttrInImg($)[0]).toMatchObject({ "selector": "#logo-mobile" });
+        expect(hasAltAttrInImg($)[0]).toMatchObject({ "selector": "#logo" });
         expect(hasAltAttrInImg($)[1]).toMatchObject({ "selector": ".stork-img" })
     });
 
