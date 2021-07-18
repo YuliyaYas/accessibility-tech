@@ -3,7 +3,7 @@ export const hasLanguageAttribute = ( $ ) => {
     if (htmlTag[0].attribs && htmlTag[0].attribs.lang) {
         return  {
             name: 'Language attribute',
-            selector: null,
+            selector: 'html',
             isPassed: true, 
             category: 'html_rule',
             description: '<html> tag has language attribute',

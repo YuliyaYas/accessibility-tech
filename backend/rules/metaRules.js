@@ -13,7 +13,7 @@ export const hasCorrectMetaMaxViewportScale = ($) => {
         if (parseInt(maxScale) >= 5) {
             return {
                 name: 'Meta attribute',
-                selector: null,
+                selector: 'meta',
                 isPassed: true,
                 category: 'meta_rule',
                 description: '<meta> tag has a maximum-scale attribute of 5.0 or higher',
@@ -23,7 +23,7 @@ export const hasCorrectMetaMaxViewportScale = ($) => {
         } else {
             return {
                 name: 'Meta attribute',
-                selector: null,
+                selector: 'meta',
                 isPassed: false,
                 category: 'meta_rule',
                 description: '<meta> tag has a maximum-scale attribute of 5.0 or lower',
@@ -33,7 +33,6 @@ export const hasCorrectMetaMaxViewportScale = ($) => {
         }
     }
 }
-
 
 export const hasCorrectMetaViewportUserScale = ($) => {
     const metaTags = $('meta');
@@ -50,7 +49,7 @@ export const hasCorrectMetaViewportUserScale = ($) => {
         if (userScale.substring(0,2) !== 'no') {
              return  {
                 name: 'Meta attribute',
-                selector: null,
+                selector: 'meta',
                 isPassed: true,
                 category: 'meta_rule',
                 description: '<meta> tag has correct user-scalable attribute. The user will be able to zoom the text content to a size they can comprehend.',
@@ -60,7 +59,7 @@ export const hasCorrectMetaViewportUserScale = ($) => {
         } else {
             return  {
                 name: 'Meta attribute',
-                selector: null,
+                selector: 'meta',
                 isPassed: false,
                 category: 'meta_rule',
                 description: '<meta> tag has user-scalable attribute set to "no". The user will not be able to zoom the text content to a size they can comprehend.',
@@ -71,7 +70,7 @@ export const hasCorrectMetaViewportUserScale = ($) => {
     } else {
         return {
             name: 'Meta attribute',
-            selector: null,
+            selector: 'meta',
             isPassed: false,
             category: 'meta_rule',
             description: '<meta> tag has no user-scalable attribute. The user will not be able to zoom the text content to a size they can comprehend.',
@@ -93,7 +92,7 @@ export const hasCorrectParentElforMeta = ($) => {
     if (!isParentHeadTag) {
         return {
             name: 'Meta attribute',
-            selector: null,
+            selector: 'meta',
             isPassed: false,
             category: 'meta_rule',
             description: '<meta> tag has no <head> parent attribute.',

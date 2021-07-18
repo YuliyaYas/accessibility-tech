@@ -39,7 +39,6 @@ export const getPage = (req, res) => {
 
 export const scanPage = (response, res) => {
   const $ = cheerio.load(response);
-console.log($('#test > h2 > div > div > img'))
   // const pTags = $('p');
   let result = [
     hasLanguageAttribute($),

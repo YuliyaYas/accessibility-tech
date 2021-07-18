@@ -1,4 +1,4 @@
-import { getSelector } from '../utils.js'
+import { getSelector } from '../utils.js';
 
 export const hasAltAttrInImg = ($) => {
     const imgs = $('img');
@@ -21,7 +21,7 @@ export const hasAltAttrInImg = ($) => {
     if (!imgCheck.length) {
         return [{
             name: 'Image attribute',
-            selector: null,
+            selector: 'img',
             isPassed: true,
             category: 'img_rule',
             description: 'All images have alt attribute',
