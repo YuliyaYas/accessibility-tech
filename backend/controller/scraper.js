@@ -4,6 +4,7 @@ import puppeteer from 'puppeteer';
 import samplePage1 from '../tests/testPages/samplePage1.js';
 import samplePage2 from '../tests/testPages/samplePage2.js';
 import samplePage3 from '../tests/testPages/samplePage3.js';
+import samplePage4 from '../tests/testPages/samplePage4.js';
 
 import { hasLanguageAttribute } from '../rules/htmlRules.js';
 import { hasCorrectMetaMaxViewportScale, hasCorrectMetaViewportUserScale, hasCorrectParentElforMeta } from '../rules/metaRules.js';
@@ -32,15 +33,14 @@ import { hasDuplicateOrEmptyId } from '../rules/idRules.js'
 // };
 
 export const getPage = (req, res) => {
-  scanPage(samplePage3.response, res);
+  scanPage(samplePage4.response, res);
 
 };
 
 export const scanPage = (response, res) => {
   const $ = cheerio.load(response);
-
+console.log($('#test > h2 > div > div > img'))
   // const pTags = $('p');
-
   let result = [
     hasLanguageAttribute($),
     hasCorrectMetaMaxViewportScale($),

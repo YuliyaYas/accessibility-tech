@@ -1,14 +1,11 @@
+import { getSelector } from '../utils.js'
+
 export const hasAltAttrInImg = ($) => {
     const imgs = $('img');
     let imgCheck = [];
     imgs.map((_, img) => {
         if (!img.attribs || img.attribs && !img.attribs.alt || img.attribs && img.attribs.alt === '') {
-            let selector =''
-            if (img.attribs && img.attribs.id){
-                selector = `#${img.attribs.id}`
-            } else if (img.attribs && img.attribs.class){
-                selector = `.${img.attribs.class}`
-            };
+            const selector = getSelector(img);
             imgCheck.push({
                 name: 'Image attribute',
                 selector,
