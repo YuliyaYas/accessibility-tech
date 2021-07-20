@@ -11,7 +11,7 @@ export const hasAltAttrInImg = ($) => {
                 selector,
                 isPassed: false,
                 category: 'img_rule',
-                description: `<img> tag ${selector ? 'with selector '+selector+ ' ' : ''}has no alt attribute`,
+                description: `<img> tag ${selector ? 'with selector "'+selector+ '" ' : ''}has no alt attribute`,
                 tip: 'Make sure to add alt attribute to <img> tags',
                 tag: 'html',
             })

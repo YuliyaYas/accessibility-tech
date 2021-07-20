@@ -3,7 +3,6 @@ import samplePage1 from './testPages/samplePage1.js';
 import samplePage2 from './testPages/samplePage2.js';
 import samplePage3 from './testPages/samplePage3.js';
 
-
 import cheerio from'cheerio';
 
 describe('meta rules for Sample page 1, 2 and 3 - viewport max scaling', function() {
