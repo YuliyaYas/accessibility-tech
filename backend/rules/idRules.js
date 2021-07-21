@@ -21,6 +21,7 @@ export const hasDuplicateOrEmptyId = ($) => {
                 description: 'Your element has an empty id',
                 tip: 'Please remove the id attribute or add a unique id to this element',
                 tag: 'id',
+                html: $.html(el)
             });
         };
     });
@@ -33,14 +34,16 @@ export const hasDuplicateOrEmptyId = ($) => {
     }
     if (duplicateIds.length) {
         duplicateIds.map(id => {
+            const idEl = $(`#${id}`);
             msg.push({
                 name: 'Id duplicates and/or empty',
                 selector: null,
                 isPassed: false,
                 category: 'id_rule',
                 description: `Your elements have a duplicate id #${id}`,
-                tip: 'Id should be a unique value. Please rename the id attribute to a unique id',
+                tip: 'ARIA IDs should be unique. Please rename the id attribute to a unique one',
                 tag: 'id',
+                html: $.html(idEl)
             });
         });
     };

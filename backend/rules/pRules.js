@@ -14,6 +14,7 @@ export const hasTabIndexInPTag = ($) => {
                 description: `<p> tag ${selector ? 'with selector "'+selector+ '" ' : ''}has a tabindex attribute`,
                 tip: 'Please remove tabindex attribute from the <p> tag. Text is not meant to be navigated with a tab key',
                 tag: 'html',
+                html: $.html(p)
             })
         }
     })

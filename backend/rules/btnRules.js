@@ -14,6 +14,7 @@ export const hasAccessibleNameInBtns = ($) => {
                 description: `<button> tag ${selector ? 'with selector "' + selector + '" ' : ''}has no accessible name`,
                 tip: 'For buttons without visible labels (text inside of the button), use the aria-label attribute to clearly describe the action to anyone using an assistive technology',
                 tag: 'button',
+                html: $.html(btn)
             })
         }
     })

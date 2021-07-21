@@ -14,6 +14,7 @@ export const hasAltAttrInImg = ($) => {
                 description: `<img> tag ${selector ? 'with selector "'+selector+ '" ' : ''}has no alt attribute`,
                 tip: 'Make sure to add alt attribute to <img> tags',
                 tag: 'html',
+                html: $.html(img)
             })
         }
     })
@@ -27,6 +28,7 @@ export const hasAltAttrInImg = ($) => {
             description: 'All images have alt attribute',
             tip: null,
             tag: 'html',
+            html: null,
         }]
     } else {
         return imgCheck;

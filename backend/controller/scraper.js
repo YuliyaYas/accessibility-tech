@@ -12,6 +12,8 @@ import { hasAltAttrInImg } from '../rules/imgRules.js';
 import { hasDuplicateOrEmptyId } from '../rules/idRules.js';
 import { hasTabIndexInPTag } from '../rules/pRules.js';
 import { hasAccessibleNameInBtns } from '../rules/btnRules.js';
+import { hasAccessibleNameInATag } from '../rules/aRules.js';
+
 // export const getPage = (req, res) => {
 //   const body = req.body;
 //   puppeteer.launch({ headless: true })
@@ -35,7 +37,7 @@ import { hasAccessibleNameInBtns } from '../rules/btnRules.js';
 // };
 
 export const getPage = (req, res) => {
-  scanPage(samplePage4.response, res);
+  scanPage(samplePage3.response, res);
 };
 
 export const scanPage = (response, res) => {
@@ -50,6 +52,7 @@ export const scanPage = (response, res) => {
     ...hasDuplicateOrEmptyId($),
     ...hasTabIndexInPTag($),
     ...hasAccessibleNameInBtns($),
+    ...hasAccessibleNameInATag($),
   ].filter(function (el) {return el != null;});
     // allEls.each((i, el) => console.log('el-------_>', i, "-----_>", el))
   //   fs.writeFile("output.json",   JSON.stringify(response), 'utf8', function (err) {

@@ -19,6 +19,7 @@ export const hasCorrectMetaMaxViewportScale = ($) => {
                 description: '<meta> tag has a maximum-scale attribute of 5.0 or higher',
                 tip: null,
                 tag: 'meta',
+                html: $.html(viewportTag)
             }
         } else {
             return {
@@ -29,6 +30,7 @@ export const hasCorrectMetaMaxViewportScale = ($) => {
                 description: '<meta> tag has a maximum-scale attribute of 5.0 or lower',
                 tip: 'Make sure your <meta> tag with viewport has a maximum-scale attribute of 5.0 or higher. This allows users to zoom into a page. ',
                 tag: 'meta',
+                html: $.html(viewportTag)
             }
         }
     }
@@ -55,6 +57,7 @@ export const hasCorrectMetaViewportUserScale = ($) => {
                 description: '<meta> tag has correct user-scalable attribute. The user will be able to zoom the text content to a size they can comprehend.',
                 tip: 'Add user-scalable=yes to your viewport <meta> tag.',
                 tag: 'meta',
+                html: null,
             }
         } else {
             return  {
@@ -65,6 +68,7 @@ export const hasCorrectMetaViewportUserScale = ($) => {
                 description: '<meta> tag has user-scalable attribute set to "no". The user will not be able to zoom the text content to a size they can comprehend.',
                 tip: 'Add user-scalable=yes to your viewport <meta> tag.',
                 tag: 'meta',
+                html: $.html(viewportTag)
             }
         }
     } else {
@@ -76,6 +80,7 @@ export const hasCorrectMetaViewportUserScale = ($) => {
             description: '<meta> tag has no user-scalable attribute. The user will not be able to zoom the text content to a size they can comprehend.',
             tip: 'Add user-scalable=yes to your viewport <meta> tag.',
             tag: 'meta',
+            html: $.html(viewportTag)
         }
     }
 }
@@ -98,6 +103,7 @@ export const hasCorrectParentElforMeta = ($) => {
             description: '<meta> tag has no <head> parent attribute.',
             tip: '<meta> tags always go inside the <head> element',
             tag: 'meta',
+            html: null,
         }
     }
 };
