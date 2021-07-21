@@ -1,14 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap');
+@import '../../assets/styles/variables.scss';
 
 
-.check {
-    width: 30px;
-    vertical-align: middle;
-    padding-right: 10px;
-}
+.rules {
+    margin-bottom: 20px;
+    .check {
+        width: 25px;
+        vertical-align: middle;
+        padding-right: 10px;
+    }
+    
+    .html-rule{
+        margin-left: 35px;
+        color: $grey;
+        font-size: 15px;
+        span {
+            background-color: $lightGrey;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 14px;
+            color: $dark;
+        }
+        
+    }
 
-.html-rule{
-    background-color: rgb(238, 238, 238);
-    font-family: 'Roboto Mono', monospace;
-    font-size: 14px;
+    .tip-rule{
+        padding-left: 35px;
+        color: $grey;
+        font-size: 15px;
+    }
 }

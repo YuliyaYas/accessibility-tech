@@ -4,11 +4,13 @@ import { ReactComponent as Logo } from './assets/svgs/logo-text.svg';
 import Home from './pages/Home';
 import Menu from './components/menu/Menu';
 import Footer from './components/footer/Footer';
+import Results from './pages/Results';
 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Link
 } from "react-router-dom";
 
 const App = () => {
@@ -54,15 +56,21 @@ const App = () => {
   return (
     <>
       <div className="app">
-        <Logo />
         <Router>
+        <Link to="/"><Logo /></Link>
         {/* <Menu /> */}
           <Switch>
             <Route path="/about">
               {/* <About /> */}
             </Route>
-            <Route path="/users">
-              {/* <Users /> */}
+            <Route path="/results">
+              <Results 
+                handleSubmit={handleSubmit}
+                handleChange={handleChange}
+                isError={isError}
+                isLoading={isLoading}
+                rules={rules}
+              />
             </Route>
             <Route path="/">
               <Home 

@@ -22,12 +22,12 @@ const Home = ({ rules, handleSubmit, handleChange, isError, isLoading}) => {
                 {isError ? 'Your url is not valid' : ''}
                 {isLoading ? <Spinner /> : ''}
             </div>
-            {rules.length > 0 && <center>
+            {/* {rules.length > 0 && <center>
                 <div style={{color: 'green'}}>Passed: {passed}</div>
                 <div style={{color: 'red'}}>Failed: {rules.length - passed}</div>
                 
-            </center>}
-            {rules.length > 0 && rules.map((r, i) => <Rule key={i} rule={r}/>)}
+            </center>} */}
+            {/* {rules.length > 0 && rules.map((r, i) => <Rule key={i} rule={r}/>)} */}
 
             <div id="goal-card">
                 <h3>How Does It Work?</h3>
