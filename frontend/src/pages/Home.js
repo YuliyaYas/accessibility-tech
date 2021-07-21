@@ -27,7 +27,7 @@ const Home = ({ rules, handleSubmit, handleChange, isError, isLoading}) => {
                 <div style={{color: 'red'}}>Failed: {rules.length - passed}</div>
                 
             </center>}
-            {rules.length > 0 && rules.map(r => <Rule key={r} rule={r}/>)}
+            {rules.length > 0 && rules.map((r, i) => <Rule key={i} rule={r}/>)}
 
             <div id="goal-card">
                 <h3>How Does It Work?</h3>
