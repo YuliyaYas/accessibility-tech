@@ -11,7 +11,6 @@ import Rule from '../components/rule/Rule';
 const Home = ({ rules, handleSubmit, handleChange, isError, isLoading}) => {
     const passed = rules.filter(r=> r.isPassed);
     const failed = rules.filter(r=> !r.isPassed);
-    console.log(passed, failed)
     return <>
             <div className="header-card">
                 <h2>Instantly Test If Your Websites Work With Assistive Tech</h2>
