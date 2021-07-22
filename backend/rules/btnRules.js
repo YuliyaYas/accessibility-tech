@@ -1,4 +1,4 @@
-import { getSelector } from '../utils.js';
+import { getSelector } from '../utils/utils.js';
 
 export const hasAccessibleNameInBtns = ($) => {
     const btnTags = $('button');

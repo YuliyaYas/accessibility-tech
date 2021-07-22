@@ -1,4 +1,4 @@
-import { getSelector } from '../utils.js';
+import { getSelector } from '../utils/utils.js';
 
 export const hasTabIndexInPTag = ($) => {
     const pTags = $('p');
