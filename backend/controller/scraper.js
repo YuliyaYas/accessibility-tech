@@ -37,7 +37,7 @@ import { hasAccessibleNameInATag } from '../rules/aRules.js';
 // };
 
 export const getPage = (req, res) => {
-  scanPage(samplePage4.response, res);
+  scanPage(samplePage2.response, res);
 };
 
 export const scanPage = (response, res) => {
