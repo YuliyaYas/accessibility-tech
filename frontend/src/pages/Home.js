@@ -9,7 +9,9 @@ import Form from '../components/form/Form';
 import Rule from '../components/rule/Rule';
 
 const Home = ({ rules, handleSubmit, handleChange, isError, isLoading}) => {
-    const passed = rules.filter(r=> r.isPassed).length || 0;
+    const passed = rules.filter(r=> r.isPassed);
+    const failed = rules.filter(r=> !r.isPassed);
+    console.log(passed, failed)
     return <>
             <div className="header-card">
                 <h2>Instantly Test If Your Websites Work With Assistive Tech</h2>
@@ -22,14 +24,14 @@ const Home = ({ rules, handleSubmit, handleChange, isError, isLoading}) => {
                 {isError ? 'Your url is not valid' : ''}
                 {isLoading ? <Spinner /> : ''}
             </div>
-            {/* {rules.length > 0 && <center>
-                <div style={{color: 'green'}}>Passed: {passed}</div>
-                <div style={{color: 'red'}}>Failed: {rules.length - passed}</div>
-                
-            </center>} */}
-            {/* {rules.length > 0 && rules.map((r, i) => <Rule key={i} rule={r}/>)} */}
+            {rules.length > 0 && <center>
+                <div style={{color: 'green'}}>Passed: {passed.length || 0}</div>
+                <div style={{color: 'red'}}>Failed: {failed.length || 0}</div>
+            </center>}
+            {rules.length > 0 && failed.map((r, i) => <Rule key={i} rule={r}/>)}
+            {rules.length > 0 && passed.map((r, i) => <Rule key={i} rule={r}/>)}
 
-            <div id="goal-card">
+            { !rules.length && <div id="goal-card">
                 <h3>How Does It Work?</h3>
                 <p>We evaluate website's underlying code, generate a report and provide you with a solution guidelines. Let's Make it Accessible!</p>
                 <div className="grid">
@@ -46,14 +48,14 @@ const Home = ({ rules, handleSubmit, handleChange, isError, isLoading}) => {
                         <p>Get tips on how to improve your website's accessibility.</p>
                     </div>
                 </div>
-            </div>
+            </div>}
 
-            <div id="learn-more">
+            { !rules.length && <div id="learn-more">
                 <h3>Learn More About Our Platform</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <a href="/about">LEARN MORE</a>
-                <p className="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
+                <p className="description">Over 1 billion people are estimated to live with some form of disability by the World Health Organization. This corresponds to about 15% of the world's population. We hope that our tool can help websites become more accessible to accomodate people in need.</p>
+            </div> }
 
             <div id="contact-card">
                 <h3>Have a Question or Suggestion? Send Us a Message</h3>

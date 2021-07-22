@@ -4,13 +4,13 @@ import { ReactComponent as Logo } from './assets/svgs/logo-text.svg';
 import Home from './pages/Home';
 import Menu from './components/menu/Menu';
 import Footer from './components/footer/Footer';
-import Results from './pages/Results';
+// import Results from './pages/Results';
 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
 } from "react-router-dom";
 
 const App = () => {
@@ -21,9 +21,10 @@ const App = () => {
 
   const handleChange = (e) => {
       setUrl(e.target.value)
-  }
+  };
 
   const handleSubmit = (e) => {
+    
       setIsLoading(true)
       setIsError(false)
       fetch('/page-scan', {
@@ -46,13 +47,19 @@ const App = () => {
               }
           })
           .then( resp => setRules(resp.result))
-      e.preventDefault();
+      e && e.preventDefault();
 
   }
 
   useEffect(() => {
-      setIsError(false)
+      setIsError(false);
+      const urlParams = new URLSearchParams(window.location.search);
+      const url = urlParams.get('url');
+      setUrl(url);
+      url &&  handleSubmit()
   }, []);
+
+
   return (
     <>
       <div className="app">
@@ -63,7 +70,7 @@ const App = () => {
             <Route path="/about">
               {/* <About /> */}
             </Route>
-            <Route path="/results">
+            {/* <Route path="/results">
               <Results 
                 handleSubmit={handleSubmit}
                 handleChange={handleChange}
@@ -71,7 +78,7 @@ const App = () => {
                 isLoading={isLoading}
                 rules={rules}
               />
-            </Route>
+            </Route> */}
             <Route path="/">
               <Home 
                 handleSubmit={handleSubmit}
