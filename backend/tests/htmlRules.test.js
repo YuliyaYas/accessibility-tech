@@ -3,7 +3,7 @@ import samplePage1 from './testPages/samplePage1.js';
 import samplePage2 from './testPages/samplePage2.js';
 import samplePage4 from './testPages/samplePage4.js';
 
-import cheerio from'cheerio';
+import cheerio from 'cheerio';
 
 describe('html rules for Sample page 1', function() {
     const $ = cheerio.load(samplePage1.response);

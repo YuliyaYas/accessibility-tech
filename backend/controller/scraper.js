@@ -13,6 +13,7 @@ import { hasDuplicateOrEmptyId } from '../rules/idRules.js';
 import { hasTabIndexInPTag } from '../rules/pRules.js';
 import { hasAccessibleNameInBtns } from '../rules/btnRules.js';
 import { hasAccessibleNameInATag } from '../rules/aRules.js';
+import { hasAriaHiddenInATag } from '../rules/bodyRules.js';
 
 // export const getPage = (req, res) => {
 //   const body = req.body;
@@ -37,7 +38,7 @@ import { hasAccessibleNameInATag } from '../rules/aRules.js';
 // };
 
 export const getPage = (req, res) => {
-  scanPage(samplePage2.response, res);
+  scanPage(samplePage4.response, res);
 };
 
 export const scanPage = (response, res) => {
@@ -48,6 +49,7 @@ export const scanPage = (response, res) => {
     hasCorrectMetaMaxViewportScale($),
     hasCorrectMetaViewportUserScale($),
     hasCorrectParentElforMeta($),
+    hasAriaHiddenInATag($),
     ...hasAltAttrInImg($), //it returns an array of 1 or more elements 
     ...hasDuplicateOrEmptyId($),
     ...hasTabIndexInPTag($),
@@ -57,7 +59,7 @@ export const scanPage = (response, res) => {
     // allEls.each((i, el) => console.log('el-------_>', i, "-----_>", el))
   //   fs.writeFile("output.json",   JSON.stringify(response), 'utf8', function (err) {
   //     if (err) {
-  //         console.log("An error occured while writing JSON Object to File.");
+  //         console.log("An error ocurred while writing JSON Object to File.");
   //         return console.log(err);
   //     }
   //     console.log("JSON file has been saved.");

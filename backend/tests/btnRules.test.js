@@ -1,7 +1,7 @@
 import samplePage1 from './testPages/samplePage1.js';
 import samplePage4 from './testPages/samplePage4.js';
 import { hasAccessibleNameInBtns } from '../rules/btnRules.js';
-import cheerio from'cheerio';
+import cheerio from 'cheerio';
 
 describe('button rules for Sample page 1 and 4 - buttons have accessible name', function() {
     it("displays the correct error if button has no text", () => {

@@ -1,5 +1,5 @@
 import { getSelector } from '../utils/utils.js';
-import cheerio from'cheerio';
+import cheerio from 'cheerio';
 
 const hasId = "<!DOCTYPE html><html><fakeelement><meta name=\"viewport\" content=\"width=device-width,initial-scale=1, user-scalable=yes,shrink-to-fit=no\"></fakeelement<title>Portfolio</title><link href=\"/static/css/main.baa4d6fa.chunk.css\" rel=\"stylesheet\"><body><div id=\"top-div\"><div class=\"middle-div\"><div><div><img id=\"test\"/></div></div></div></div></body></html>";
 
