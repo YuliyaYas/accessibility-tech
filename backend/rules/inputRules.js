@@ -6,7 +6,7 @@ export const hasNoAltTagInInputWithTypeImage = ($) => {
     let areAnyCorrectInputsWithImageType = false;
     inputTags.map((_, input) => {
         if (input.attribs.type && input.attribs.type === 'image') {
-            if (!input.attribs.alt) {
+            if (!input.attribs.alt && !input.attribs['aria-label']) {
             const selector = getSelector(input);
             inputTagsCheck.push({
                 name: 'Input of type image has [alt] attribute',
@@ -28,8 +28,8 @@ export const hasNoAltTagInInputWithTypeImage = ($) => {
             selector: 'input',
             isPassed: true,
             category: 'input_rule',
-            description: `All <input> tags with type of image have [alt] attribute.`,
-            tip: null,
+            description: `All <input> tags with type of image have correct attribute to describe it`,
+            tip: 'You can use [alt] or [aria-label] attributes',
             tag: 'input',
             html: null,
         }
