@@ -1,4 +1,4 @@
-export const hasAriaHiddenInATag = ($) => {
+export const hasAriaHiddenInABodyTag = ($) => {
     const bodyTag = $('body');
     if (bodyTag[0].attribs && bodyTag[0].attribs["aria-hidden"] === 'true'){
         return {

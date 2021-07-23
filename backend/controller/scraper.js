@@ -1,4 +1,4 @@
-import cheerio from'cheerio';
+import cheerio from 'cheerio';
 import fs from 'fs';
 import puppeteer from 'puppeteer';
 import samplePage1 from '../tests/testPages/samplePage1.js';
@@ -13,8 +13,8 @@ import { hasDuplicateOrEmptyId } from '../rules/idRules.js';
 import { hasTabIndexInPTag } from '../rules/pRules.js';
 import { hasAccessibleNameInBtns } from '../rules/btnRules.js';
 import { hasAccessibleNameInATag } from '../rules/aRules.js';
-import { hasAriaHiddenInATag } from '../rules/bodyRules.js';
-
+import { hasAriaHiddenInABodyTag } from '../rules/bodyRules.js';
+import { hasNoAltTagInInputWithTypeImage } from '../rules/inputRules.js';
 // export const getPage = (req, res) => {
 //   const body = req.body;
 //   puppeteer.launch({ headless: true })
@@ -49,12 +49,13 @@ export const scanPage = (response, res) => {
     hasCorrectMetaMaxViewportScale($),
     hasCorrectMetaViewportUserScale($),
     hasCorrectParentElforMeta($),
-    hasAriaHiddenInATag($),
+    hasAriaHiddenInABodyTag($),
     ...hasAltAttrInImg($), //it returns an array of 1 or more elements 
     ...hasDuplicateOrEmptyId($),
     ...hasTabIndexInPTag($),
     ...hasAccessibleNameInBtns($),
     ...hasAccessibleNameInATag($),
+    ...hasNoAltTagInInputWithTypeImage($)
   ].filter(function (el) {return el != null;});
     // allEls.each((i, el) => console.log('el-------_>', i, "-----_>", el))
   //   fs.writeFile("output.json",   JSON.stringify(response), 'utf8', function (err) {
