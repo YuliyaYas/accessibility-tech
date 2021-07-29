@@ -55,9 +55,9 @@ export const hasCorrectMetaViewportUserScale = ($) => {
                 isPassed: true,
                 category: 'meta_rule',
                 description: '<meta> tag has correct user-scalable attribute. The user will be able to zoom the text content to a size they can comprehend.',
-                tip: 'Add user-scalable=yes to your viewport <meta> tag.',
+                tip: null,
                 tag: 'meta',
-                html: null,
+                html: $.html(viewportTag),
             }
         } else {
             return  {
