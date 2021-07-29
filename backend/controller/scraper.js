@@ -16,7 +16,7 @@ import { hasAccessibleNameInATag } from '../rules/aRules.js';
 import { hasAriaHiddenInABodyTag } from '../rules/bodyRules.js';
 import { hasNoAltTagInInputWithTypeImage } from '../rules/inputRules.js';
 import { hasTrackTagInAudio } from '../rules/audioRules.js';
-
+import { hasTrackTagInVideo } from '../rules/videoRules.js';
 // export const getPage = (req, res) => {
 //   const body = req.body;
 //   puppeteer.launch({ headless: true })
@@ -59,6 +59,7 @@ export const scanPage = (response, res) => {
     ...hasAccessibleNameInATag($),
     ...hasNoAltTagInInputWithTypeImage($),
     ...hasTrackTagInAudio($),
+    ...hasTrackTagInVideo($),
   ].filter(function (el) {return el != null;});
     // allEls.each((i, el) => console.log('el-------_>', i, "-----_>", el))
   //   fs.writeFile("output.json",   JSON.stringify(response), 'utf8', function (err) {
