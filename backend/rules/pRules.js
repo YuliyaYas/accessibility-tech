@@ -18,5 +18,7 @@ export const hasTabIndexInPTag = ($) => {
             })
         }
     })
+
+    //TODO: add rule for p tags with children. P tag should have no children
     return pTagsCheck
 }
