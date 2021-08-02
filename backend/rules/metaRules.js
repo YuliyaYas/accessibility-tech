@@ -110,7 +110,7 @@ export const hasCorrectParentElforMeta = ($) => {
 
 export const hasRefreshInMetaTag = ($) => {
     const metaTags = $('meta');
-    let hasHttpEquivRefreshMeta;
+    let hasHttpEquivRefreshMeta = null;
     metaTags.map((_, meta) => {
         if (meta.attribs && meta.attribs['http-equiv'] && meta.attribs['http-equiv'] === 'refresh'){
             hasHttpEquivRefreshMeta = meta;

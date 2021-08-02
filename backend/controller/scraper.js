@@ -40,7 +40,7 @@ import { hasTrackTagWithCaptionsInVideo, hasTrackTagWithDescriptionInVideo } fro
 // };
 
 export const getPage = (req, res) => {
-  scanPage(samplePage4.response, res);
+  scanPage(samplePage1.response, res);
 };
 export const scanPage = (response, res) => {
   const $ = cheerio.load(response);
