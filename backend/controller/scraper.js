@@ -7,7 +7,7 @@ import samplePage3 from '../tests/testPages/samplePage3.js';
 import samplePage4 from '../tests/testPages/samplePage4.js';
 
 import { hasLanguageAttribute } from '../rules/htmlRules.js';
-import { hasCorrectMetaMaxViewportScale, hasCorrectMetaViewportUserScale, hasCorrectParentElforMeta } from '../rules/metaRules.js';
+import { hasCorrectMetaMaxViewportScale, hasCorrectMetaViewportUserScale, hasCorrectParentElforMeta, hasRefreshInMetaTag } from '../rules/metaRules.js';
 import { hasAltAttrInImg } from '../rules/imgRules.js';
 import { hasDuplicateOrEmptyId } from '../rules/idRules.js';
 import { hasTabIndexInPTag } from '../rules/pRules.js';
@@ -42,7 +42,6 @@ import { hasTrackTagWithCaptionsInVideo, hasTrackTagWithDescriptionInVideo } fro
 export const getPage = (req, res) => {
   scanPage(samplePage4.response, res);
 };
-
 export const scanPage = (response, res) => {
   const $ = cheerio.load(response);
   // const pTags = $('p');
@@ -51,6 +50,7 @@ export const scanPage = (response, res) => {
     hasCorrectMetaMaxViewportScale($),
     hasCorrectMetaViewportUserScale($),
     hasCorrectParentElforMeta($),
+    hasRefreshInMetaTag($),
     hasAriaHiddenInABodyTag($),
     ...hasAltAttrInImg($), //it returns an array of 1 or more elements 
     ...hasDuplicateOrEmptyId($),

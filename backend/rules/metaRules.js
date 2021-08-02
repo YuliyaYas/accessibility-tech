@@ -2,7 +2,7 @@ export const hasCorrectMetaMaxViewportScale = ($) => {
     const metaTags = $('meta');
     let viewportTag = '';
 
-    metaTags.map((i, mtag) => {
+    metaTags.map((_, mtag) => {
         if (mtag.attribs && mtag.attribs.name === 'viewport') {
             return viewportTag = mtag;
         }
@@ -40,7 +40,7 @@ export const hasCorrectMetaViewportUserScale = ($) => {
     const metaTags = $('meta');
     let viewportTag = '';
 
-    metaTags.map((i, mtag) => {
+    metaTags.map((_, mtag) => {
         if (mtag.attribs && mtag.attribs.name === 'viewport') {
             return viewportTag = mtag;
         }
@@ -89,7 +89,7 @@ export const hasCorrectMetaViewportUserScale = ($) => {
 export const hasCorrectParentElforMeta = ($) => {
     const metaTags = $('meta');
     let isParentHeadTag = true;
-    metaTags.map((i, mtag) => {
+    metaTags.map((_, mtag) => {
         if (mtag.parent.name !== 'head') {
             isParentHeadTag = false;
         }
@@ -107,3 +107,37 @@ export const hasCorrectParentElforMeta = ($) => {
         }
     }
 };
+
+export const hasRefreshInMetaTag = ($) => {
+    const metaTags = $('meta');
+    let hasHttpEquivRefreshMeta;
+    metaTags.map((_, meta) => {
+        if (meta.attribs && meta.attribs['http-equiv'] && meta.attribs['http-equiv'] === 'refresh'){
+            hasHttpEquivRefreshMeta = meta;
+        }
+    })
+
+    if (!hasHttpEquivRefreshMeta) {
+        return {
+            name: 'Meta attribute',
+            selector: 'meta',
+            isPassed: true,
+            category: 'meta_rule',
+            description: "<meta> tag does not include http-equiv=[refresh]",
+            tip: null,
+            tag: 'meta',
+            html: null,
+        }
+    } else if (hasHttpEquivRefreshMeta){
+        return {
+            name: 'Meta attribute',
+            selector: 'meta',
+            isPassed: false,
+            category: 'meta_rule',
+            description: "<meta> tag should not have refresh value",
+            tip: 'Remove http-equiv=[refresh] from meta tag and use JavaScript instead to refresh a page',
+            tag: 'meta',
+            html: $.html(hasHttpEquivRefreshMeta),
+        }
+    }
+}
