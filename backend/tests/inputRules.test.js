@@ -8,7 +8,7 @@ import cheerio from 'cheerio';
 describe('Input tag with type of image has alt attribute', function() {
     it("Input tag with type of image has alt attribute in sample page 3", () => {
         const $ = cheerio.load(samplePage3.response);
-        expect(hasNoAltTagInInputWithTypeImage($).isPassed).toEqual(true);
+        expect(hasNoAltTagInInputWithTypeImage($)[0].isPassed).toEqual(true);
     });
 
     it("Input tag with type of image has no attribute in sample page 4", () => {

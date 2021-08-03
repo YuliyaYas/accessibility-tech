@@ -23,7 +23,7 @@ export const hasNoAltTagInInputWithTypeImage = ($) => {
     })
 
     if (areAnyCorrectInputsWithImageType && !inputTagsCheck.length) {
-        return {
+        return [{
             name: 'Input of type image has [alt] attribute',
             selector: 'input',
             isPassed: true,
@@ -32,6 +32,6 @@ export const hasNoAltTagInInputWithTypeImage = ($) => {
             tip: 'You can use [alt] or [aria-label] attributes',
             tag: 'input',
             html: null,
-        }
+        }]
     } else return inputTagsCheck;
 }
