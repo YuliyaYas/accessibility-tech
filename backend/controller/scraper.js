@@ -10,7 +10,7 @@ import { hasLanguageAttribute } from '../rules/htmlRules.js';
 import { hasCorrectMetaMaxViewportScale, hasCorrectMetaViewportUserScale, hasCorrectParentElforMeta, hasRefreshInMetaTag } from '../rules/metaRules.js';
 import { hasAltAttrInImg } from '../rules/imgRules.js';
 import { hasDuplicateOrEmptyId } from '../rules/idRules.js';
-import { hasTabIndexInPTag } from '../rules/pRules.js';
+import { hasTabIndexInPTag, hasChildrenInPTag } from '../rules/pRules.js';
 import { hasAccessibleNameInBtns } from '../rules/btnRules.js';
 import { hasAccessibleNameInATag } from '../rules/aRules.js';
 import { hasAriaHiddenInABodyTag } from '../rules/bodyRules.js';
@@ -64,6 +64,7 @@ export const scanPage = (response, res) => {
     ...hasTrackTagWithCaptionsInVideo($),
     ...hasTrackTagWithDescriptionInVideo($),
     ...hasAccessibleNameInObjects($),
+    ...hasChildrenInPTag($),
   ].filter(function (el) {return el != null;});
     // allEls.each((i, el) => console.log('el-------_>', i, "-----_>", el))
   //   fs.writeFile("output.json",   JSON.stringify(response), 'utf8', function (err) {
