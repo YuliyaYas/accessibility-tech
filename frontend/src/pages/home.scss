@@ -9,6 +9,23 @@
         padding-top: 50px;
     }
 }
+.rule-results{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 8fr repeat(1, minmax(auto,2fr));
+    gap: 10px;
+    #web-img{
+        width: 100%;
+    }
+    .rules-passed{
+        display: flex;
+        align-items: center;
+       div{
+        padding-right: 30px;
+       }
+    }
+}
+
 #url-card {
     text-align: center;
     padding: 50px 0;

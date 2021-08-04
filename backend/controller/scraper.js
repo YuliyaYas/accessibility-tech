@@ -19,32 +19,35 @@ import { hasTrackTagInAudio } from '../rules/audioRules.js';
 import { hasTrackTagWithCaptionsInVideo, hasTrackTagWithDescriptionInVideo } from '../rules/videoRules.js';
 import { hasAccessibleNameInObjects } from '../rules/objRules.js';
 
-// export const getPage = (req, res) => {
-//   const body = req.body;
-//   puppeteer.launch({ headless: true })
-//     .then(async (browser) => {
-//       let page = await browser.newPage()
-//       page.setViewport({ width: 1366, height: 768 });
-//       await page.goto(body.url);
-//         body.url && page.goto(body.url, { waitUntil: 'domcontentloaded' })
-//         .then(() => {
-//           const content = page.content();
-//           content
-//             .then((response) => {
-//               scanPage(response, res);
-//             })
-//         })
-//     })
-//     .catch((err) => {
-//       console.log(" CAUGHT WITH AN ERROR ", err);
-//       res.status(400).send(err);
-//     })
-// };
-
 export const getPage = (req, res) => {
-  scanPage(samplePage4.response, res);
+  const body = req.body;
+  puppeteer.launch({ headless: true })
+    .then(async (browser) => {
+      let page = await browser.newPage()
+      
+      page.setViewport({ width: 1366, height: 768 });
+      await page.goto(body.url);
+      const image = await page.screenshot();
+
+        body.url && page.goto(body.url, { waitUntil: 'domcontentloaded' })
+        .then(() => {
+          const content = page.content();
+          content
+            .then((response) => {
+              scanPage(response, res, image);
+            })
+        })
+    })
+    .catch((err) => {
+      console.log(" CAUGHT WITH AN ERROR ", err);
+      res.status(400).send(err);
+    })
 };
-export const scanPage = (response, res) => {
+
+// export const getPage = (req, res) => {
+//   scanPage(samplePage4.response, res);
+// };
+export const scanPage = (response, res, image) => {
   const $ = cheerio.load(response);
 
   let result = [
@@ -75,6 +78,6 @@ export const scanPage = (response, res) => {
   //     console.log("JSON file has been saved.");
   // });
 // console.log(result)
-  res.send({ result})
+  res.send({ result, image})
 
 }

@@ -16,15 +16,16 @@ import {
 const App = () => {
   const [url, setUrl] = useState('')
   const [isError, setIsError] = useState(false);
-  const [isLoading, setIsLoading] = useState(false)
-  const [rules, setRules] = useState([])
+  const [isLoading, setIsLoading] = useState(false);
+  const [rules, setRules] = useState([]);
+  const [webImg, setWebImg] = useState(null);
 
   const handleChange = (e) => {
       setUrl(e.target.value)
   };
 
   const handleSubmit = (e) => {
-    
+
       setIsLoading(true)
       setIsError(false)
       fetch('/page-scan', {
@@ -46,7 +47,9 @@ const App = () => {
                   setIsLoading(false)
               }
           })
-          .then( resp => setRules(resp.result))
+          .then( resp => {
+            setWebImg(resp.image)
+            setRules(resp.result)})
       e && e.preventDefault();
 
   }
@@ -86,6 +89,7 @@ const App = () => {
                 isError={isError}
                 isLoading={isLoading}
                 rules={rules}
+                webImg={webImg}
               />
             </Route>
           </Switch>
