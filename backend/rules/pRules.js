@@ -1,5 +1,5 @@
 import { getSelector } from '../utils/utils.js';
-
+// TODO: write test for the two fn below
 export const hasTabIndexInPTag = ($) => {
     const pTags = $('p');
     let pTagsCheck = [];
@@ -22,7 +22,7 @@ export const hasTabIndexInPTag = ($) => {
     if (pTags.length && !pTagsCheck.length){
         return [{
             name: 'P attribute',
-            selector,
+            selector: 'p',
             isPassed: true,
             category: 'p_rule',
             description: `<p> tags has no tabindex attribute`,
