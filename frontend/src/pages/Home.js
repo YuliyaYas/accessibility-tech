@@ -15,7 +15,7 @@ const Home = ({ rules, handleSubmit, handleChange, isError, isLoading, webImg })
     return <>
         <div className="header-card">
             <h2>Instantly Test If Your Websites Work With Assistive Tech</h2>
-            <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </h3>
+            <h3>A quick and insightful way to test your site's accessibility</h3>
         </div>
 
         <div id="url-card">
@@ -54,9 +54,9 @@ const Home = ({ rules, handleSubmit, handleChange, isError, isLoading, webImg })
 
         {!rules.length && <div id="learn-more">
             <h3>Learn More About Our Platform</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p className="description">Over 1 billion people are estimated to live with some form of disability by the World Health Organization. This corresponds to about 15% of the world's population. We hope that our tool can help websites become more accessible to accommodate people in need.</p>
             <a href="/about">LEARN MORE</a>
-            <p className="description">Over 1 billion people are estimated to live with some form of disability by the World Health Organization. This corresponds to about 15% of the world's population. We hope that our tool can help websites become more accessible to accomodate people in need.</p>
+            
         </div>}
 
         <div id="contact-card">

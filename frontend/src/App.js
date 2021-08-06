@@ -37,19 +37,27 @@ const App = () => {
           body: JSON.stringify({ url })
       })
           .then(res => {
-              if (res.ok) {
-                  setIsError(false)
-                  setIsLoading(false)
-                  // res.json()
-                  return res.json()
-              } else {
-                  setIsError(true)
-                  setIsLoading(false)
+              if (!res.ok){
+                setIsError(true)
+                setIsLoading(false)
+                throw Error(res.statusText);
+              } else if (res.ok){
+                setIsError(false)
+                setIsLoading(false)
+                // res.json()
+                return res.json()
               }
           })
-          .then( resp => {
-            setWebImg(resp.image)
-            setRules(resp.result)})
+          .catch(err => console.log('err', err))
+          .finally( resp => {
+            if(resp){
+              resp.image && setWebImg(resp.image)
+              setRules(resp.result)
+            } else {
+              setIsError(true)
+            }
+            
+          })
       e && e.preventDefault();
 
   }
