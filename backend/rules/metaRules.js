@@ -66,7 +66,7 @@ export const hasCorrectMetaViewportUserScale = ($) => {
                 isPassed: false,
                 category: 'meta_rule',
                 description: '<meta> tag has user-scalable attribute set to "no". The user will not be able to zoom the text content to a size they can comprehend.',
-                tip: 'Add user-scalable=yes to your viewport <meta> tag.',
+                tip: 'Add user-scalable=yes to your viewport <meta> tag in the [content] attribute.',
                 tag: 'meta',
                 html: $.html(viewportTag)
             }
@@ -78,7 +78,7 @@ export const hasCorrectMetaViewportUserScale = ($) => {
             isPassed: false,
             category: 'meta_rule',
             description: '<meta> tag has no user-scalable attribute. The user will not be able to zoom the text content to a size they can comprehend.',
-            tip: 'Add user-scalable=yes to your viewport <meta> tag.',
+            tip: 'Add user-scalable=yes to your viewport <meta> tag in the [content] attribute.',
             tag: 'meta',
             html: $.html(viewportTag)
         }

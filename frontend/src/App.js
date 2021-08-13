@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import Menu from './components/menu/Menu';
 import Footer from './components/footer/Footer';
 // import Results from './pages/Results';
-
+import About from './components/about/About';
 import {
   BrowserRouter as Router,
   Switch,
@@ -21,12 +21,10 @@ const App = () => {
   const [webImg, setWebImg] = useState(null);
 
   const handleChange = (e) => {
-    console.log("IM HERE", e.target.value)
       setUrl(e.target.value)
   };
 
   const handleSubmit = (e) => {
-console.log(url)
       setIsLoading(true)
       setIsError(false)
       fetch('/page-scan', {
@@ -38,7 +36,6 @@ console.log(url)
           body: JSON.stringify({ url })
       })
           .then(res => {
-            console.log(res.ok)
               if (!res.ok){
                 setIsError(true)
                 setIsLoading(false)
@@ -51,7 +48,6 @@ console.log(url)
           })
           .catch(err => console.log('err', err))
           .then( resp => {
-            console.log('resp', resp)
             if(resp){
               resp.image && setWebImg(resp.image)
               setRules(resp.result)
@@ -72,7 +68,7 @@ console.log(url)
         {/* <Menu /> */}
           <Switch>
             <Route path="/about">
-              {/* <About /> */}
+              <About />
             </Route>
             {/* <Route path="/results">
               <Results 
