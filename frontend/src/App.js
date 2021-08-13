@@ -27,7 +27,12 @@ const App = () => {
   const handleSubmit = (e) => {
       setIsLoading(true);
       setIsError(false);
-      var pattern = /^((http|https|ftp):\/\/)/;
+      const pattern = /^((http|https|ftp):\/\/)/;
+
+      window && window.analytics && window.analytics.track("URL", {
+        name: "Scanned URL",
+        url: url
+      });
 
       if(pattern.test(url)) {
         fetch('/page-scan', {
