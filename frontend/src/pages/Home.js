@@ -20,7 +20,7 @@ const Home = ({ rules, handleSubmit, handleChange, isError, isLoading, webImg })
 
         <div id="url-card">
             <Input handleChange={handleChange} handleSubmit={handleSubmit} />
-            {isError ? 'Your url is not valid. Examples of valid urls: https://www.goodurl.com, https://goodurl.com' : ''}
+            {isError ? 'Your url is not valid. Examples of valid urls: https://www.goodurl.com' : ''}
             {isLoading ? <Spinner /> : ''}
         </div>
         <div className="rule-results">

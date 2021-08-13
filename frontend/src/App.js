@@ -25,9 +25,12 @@ const App = () => {
   };
 
   const handleSubmit = (e) => {
-      setIsLoading(true)
-      setIsError(false)
-      fetch('/page-scan', {
+      setIsLoading(true);
+      setIsError(false);
+      var pattern = /^((http|https|ftp):\/\/)/;
+
+      if(pattern.test(url)) {
+        fetch('/page-scan', {
           method: 'post',
           headers: {
               'Accept': 'application/json, text/plain, */*',
@@ -56,6 +59,11 @@ const App = () => {
             }
             
           })
+      } else {
+        setIsError(true)
+        setIsLoading(false)
+      }
+     
       e && e.preventDefault();
 
   }
