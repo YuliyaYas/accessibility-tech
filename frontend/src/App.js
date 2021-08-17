@@ -35,7 +35,7 @@ const App = () => {
       });
 
       if(pattern.test(url)) {
-        fetch('/page-scan', {
+        fetch('https://api.accessibility-report.com/page-scan', {
           method: 'post',
           headers: {
               'Accept': 'application/json, text/plain, */*',
