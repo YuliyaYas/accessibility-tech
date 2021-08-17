@@ -4,6 +4,9 @@
 
 .rules {
     margin-bottom: 20px;
+    @media only screen and (max-width: 600px) {
+        padding: 5px 10px;
+    }
     .check {
         width: 25px;
         vertical-align: middle;
@@ -19,6 +22,7 @@
             font-family: 'Roboto Mono', monospace;
             font-size: 14px;
             color: $dark;
+            word-wrap: break-word;
         }
         
     }

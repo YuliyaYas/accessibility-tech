@@ -16,10 +16,16 @@
     grid-template-columns: 8fr repeat(1, minmax(auto,2fr));
     padding-bottom: 50px;
     gap: 10px;
+    @media only screen and (max-width: 600px) {
+        display: block;
+    }
     #web-img{
         width: 100%;
     }
     .rules-passed{
+        @media only screen and (max-width: 600px) {
+            display: block;
+        }
         display: flex;
         align-items: center;
        div{
