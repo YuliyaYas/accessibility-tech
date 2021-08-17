@@ -77,7 +77,7 @@ const App = () => {
     <>
       <div className="app">
         <Router>
-        <Link to="/"><Logo /></Link>
+        <Link to="/"><Logo id="logo"/></Link>
         {/* <Menu /> */}
           <Switch>
             <Route path="/about">

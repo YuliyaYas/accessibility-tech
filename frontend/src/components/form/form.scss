@@ -3,16 +3,38 @@
 #contact-form {
     max-width: 700px;
     margin: 0 auto;
-    .span-half{
-        width: 45%;
-        float: left;
+    @media only screen and (max-width: 600px) {
+        padding: 10px;
+        #firstname, #email{
+            width: 90%;
+        }
+        input{
+            width: 90% !important;
+        }
+
+        textarea{
+            width: 94% !important;
+        }
     }
-    #firstname {
-        margin-right: 3%;
+    @media only screen and (min-width: 600px) {
+        .span-half{
+            width: 45%;
+            float: left;
+        }
+        #firstname {
+            margin-right: 3%;
+        }
+        .span-full{
+            width: 97%;
+        }
+        
+        textarea {
+            width: 99.5%;
+            border: 2px solid $dark;
+            
+        }
     }
-    .span-full{
-        width: 97%;
-    }
+  
     input, textarea {
         background: #fafafa;
         margin: 10px 0px;
@@ -21,12 +43,6 @@
             outline: none;
         }
     }
-    textarea {
-        width: 99.5%;
-        border: 2px solid $dark;
-        
-    }
-
     ::placeholder {
         color: grey;
         font-size: 12px;

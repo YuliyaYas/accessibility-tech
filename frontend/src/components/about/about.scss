@@ -2,12 +2,21 @@
 
 
 #about{
+    padding: 0 10px;
     h3{
         text-align: center;
         font-size: 28px;
+        @media only screen and (max-width: 600px) {
+            padding: 20px 0;
+            line-height: 30px;
+            max-width: 320px;
+            margin: 0 auto;
+        }
         padding: 50px 0;
     }
-
+    p {
+        text-align: justify;
+    }
     .card-popup{
         margin: 0 auto;
         max-width: 700px;
@@ -20,5 +29,8 @@
     }
     a{
         color: #757575;
+    }
+    span.citation {
+        font-size: 12px;
     }
 }

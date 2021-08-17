@@ -7,6 +7,7 @@
     h2 {
         font-size: 28px;
         padding-top: 50px;
+        line-height: 32px;
     }
 }
 .rule-results{
@@ -41,18 +42,23 @@
     h3 {
         padding-top: 20px;
     }
-    .grid {
-        display: grid;
-        padding: 60px;
-        grid-template-columns: repeat(3, 1fr);
-        .card {
-            svg {
-                max-width: 100px;
-            }
-            p {
-                padding: 10px 15px;
+    @media only screen and (min-width: 600px) {
+        .grid {
+            display: grid;
+            padding: 60px;
+            grid-template-columns: repeat(3, 1fr);
+            .card {
+                svg {
+                    max-width: 100px;
+                }
+                p {
+                    padding: 10px 15px;
+                }
             }
         }
+    }
+    @media only screen and (max-width: 600px) {
+        padding: 10px;
     }
 }
 
