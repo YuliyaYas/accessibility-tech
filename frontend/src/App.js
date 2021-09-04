@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import Menu from './components/menu/Menu';
 import Footer from './components/footer/Footer';
 // import Results from './pages/Results';
-import About from './components/about/About';
+import About from './pages/about/About';
 import {
   BrowserRouter as Router,
   Switch,

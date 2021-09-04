@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import './about.scss';
-import Form from '../form/Form';
+import Form from '../../components/form/Form';
 
 const About = () => {
 
