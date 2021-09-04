@@ -1,8 +1,15 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './about.scss';
 import Form from '../form/Form';
 
 const About = () => {
+
+    useEffect(()=>{
+        if(document && document.querySelector("meta[name='Accessibility Scanner']")){
+            document.querySelector("meta[name='Accessibility Scanner']").content='With Accessibility Report, you can evaluate the accessibility of your website and quickly determine your next steps. Our tool works with single page applications (React/Angular/etc.) as well as traditional web apps.'
+        }
+    }, []);
+
     return (
         <div id="about">
             <h3>Accessibility shouldn’t be a challenge.</h3>

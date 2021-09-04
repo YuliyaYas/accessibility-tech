@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Input from '../components/urlInput/Input';
 import Spinner from '../components/spinner/Spinner';
 import './home.scss';
@@ -11,6 +11,12 @@ import Rule from '../components/rule/Rule';
 const Home = ({ rules, handleSubmit, handleChange, isError, isLoading, webImg }) => {
     const passed = rules.filter(r => r.isPassed);
     const failed = rules.filter(r => !r.isPassed);
+
+    useEffect(()=>{
+        if(document && document.querySelector("meta[name='Accessibility Scanner']")){
+            document.querySelector("meta[name='Accessibility Scanner']").content="An accessibility scanning tool, a quick and insightful way to test your site's accessibility."
+        }
+    }, []);
 
     return <>
         <div className="header-card">
